@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Collection;
+import java.util.Optional;
 
 @Service
 public class CountryServiceImpl implements CountryService{
@@ -25,4 +26,14 @@ public class CountryServiceImpl implements CountryService{
     public Collection<CountryEntity> findAll() {
         return countryDao.findAll();
     }
+
+    @Override
+    public CountryEntity findById(int id) {
+        Optional<CountryEntity> country = countryDao.findById(id);
+        //return country.isPresent() ? country.get() : null;
+        //return country.orElseThrow(throw new IllegalArgumentException("country not found by id"));
+        return country.orElse(new CountryEntity());
+    }
+
+
 }

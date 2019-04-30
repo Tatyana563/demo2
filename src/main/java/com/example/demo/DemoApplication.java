@@ -1,10 +1,10 @@
 package com.example.demo;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+		import org.springframework.boot.SpringApplication;
+		import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.io.Serializable;
-import java.util.*;
+		import java.io.Serializable;
+		import java.util.*;
 
 @SpringBootApplication
 public class DemoApplication {

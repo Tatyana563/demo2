@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
+import java.util.Optional;
 
 @Repository
 public class CountryDaoImpl implements CountryDao {
@@ -34,5 +35,12 @@ public class CountryDaoImpl implements CountryDao {
         /*if (CollectionUtils.isEmpty(countryEntities)) return Collections.emptyList();
         return countryEntities;*/
         return CollectionUtils.isEmpty(countryEntities) ? Collections.emptyList() : countryEntities;
+    }
+
+    @Override
+    public Optional<CountryEntity> findById(int id) {
+        final CountryEntity countryEntity = entityManager.find(CountryEntity.class, id);
+        if (Objects.isNull(countryEntity)) throw new RuntimeException("country not found");
+        return Optional.ofNullable(countryEntity);
     }
 }

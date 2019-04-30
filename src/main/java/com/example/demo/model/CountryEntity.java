@@ -1,13 +1,9 @@
 package com.example.demo.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import com.example.demo.model.enumeration.CityType;
+import com.example.demo.model.enumeration.MotherTongue;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -19,11 +15,13 @@ public class CountryEntity {
     @SequenceGenerator(name = "seq_country", sequenceName = "seq_country", allocationSize = 1)
     private Integer id;
 
-    @Column(name = "COUNTRY_NAME", nullable = false, insertable = true, updatable = true)
+    @Column(name = "COUNTRY_NAME", nullable = true, insertable = true, updatable = true)
     private String name;
 
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "MOTHER_TONGUE")
-    private String motherTongue;
+    private MotherTongue motherTongue;
 
     @Column(name = "CURRENCY")
     private String currency;
@@ -54,11 +52,11 @@ public class CountryEntity {
         this.name = name;
     }
 
-    public String getMotherTongue() {
+    public MotherTongue getMotherTongue() {
         return motherTongue;
     }
 
-    public void setMotherTongue(String motherTongue) {
+    public void setMotherTongue(MotherTongue motherTongue) {
         this.motherTongue = motherTongue;
     }
 
@@ -84,5 +82,17 @@ public class CountryEntity {
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    @Override
+    public String toString() {
+        return "CountryEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", motherTongue=" + motherTongue +
+                ", currency='" + currency + '\'' +
+                ", square=" + square +
+                ", createDate=" + createDate +
+                '}';
     }
 }
