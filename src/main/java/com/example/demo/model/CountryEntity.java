@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import com.example.demo.model.enumeration.CityType;
+import com.example.demo.model.enumeration.Currency;
 import com.example.demo.model.enumeration.MotherTongue;
 
 import javax.persistence.*;
@@ -24,16 +25,37 @@ public class CountryEntity {
     private MotherTongue motherTongue;
 
     @Column(name = "CURRENCY")
-    private String currency;
+    private Currency currency;
 
     @Column(name = "SQUARE")
     private double square;
 
+    @Column(name = "POPULATION")
+    private Integer population;
+
+    @Column(name = "DESCRIPTION")
+    private String description;
 
     @Transient
     private Date createDate;
 
     public CountryEntity() {
+    }
+
+    public Integer getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(Integer population) {
+        this.population = population;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Integer getId() {
@@ -60,11 +82,11 @@ public class CountryEntity {
         this.motherTongue = motherTongue;
     }
 
-    public String getCurrency() {
+    public Currency getCurrency() {
         return currency;
     }
 
-    public void setCurrency(String currency) {
+    public void setCurrency(Currency currency) {
         this.currency = currency;
     }
 

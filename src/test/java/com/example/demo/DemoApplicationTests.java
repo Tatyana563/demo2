@@ -20,20 +20,20 @@ public class DemoApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		final CountryEntity countryEntity = new CountryEntity();//transient class
-		countryEntity.setId(120000);
-		countryEntity.setName("Russia");
-		countryEntity.setMotherTongue(MotherTongue.RU);
-		countryEntity.setCurrency("RUB");
-		System.out.println("id from new country entity = " + countryEntity.getId());
-		countryService.createOrUpdate(countryEntity);//
-		System.out.println("id from new country entity = " + countryEntity.getId());
-		countryEntity.setName("new Name");
-		countryService.createOrUpdate(countryEntity);
-		System.out.println("id from new country entity = " + countryEntity.getId());
-		System.out.println();
-		System.out.println(countryService.findById(8));
-		System.out.println(countryService.findById(80));
+//		final CountryEntity countryEntity = new CountryEntity();//transient class
+//		countryEntity.setId(120000);
+//		countryEntity.setName("Russia");
+//		countryEntity.setMotherTongue(MotherTongue.RU);
+//		countryEntity.setCurrency("RUB");
+//		System.out.println("id from new country entity = " + countryEntity.getId());
+//		countryService.createOrUpdate(countryEntity);//
+//		System.out.println("id from new country entity = " + countryEntity.getId());
+//		countryEntity.setName("new Name");
+//		countryService.createOrUpdate(countryEntity);
+//		System.out.println("id from new country entity = " + countryEntity.getId());
+//		System.out.println();
+//		System.out.println(countryService.findById(8));
+//		System.out.println(countryService.findById(80));
 	}
 
 

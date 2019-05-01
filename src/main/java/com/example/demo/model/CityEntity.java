@@ -33,10 +33,21 @@ public class CityEntity {
     @Column(name = "CAPITAL")
     private int capital;
 
+    @Column(name = "POPULATION")
+    private int population;
+
     @Transient
     private Date createDate;
 
     public CityEntity() {
+    }
+
+    public int getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(int population) {
+        this.population = population;
     }
 
     public Integer getId() {

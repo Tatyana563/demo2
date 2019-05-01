@@ -12,7 +12,7 @@ public class StreetEntity {
     private Integer id;
     
     @Column(name = "HOUSE")
-    private String house;
+    private Integer house;
 
     @Column(name = "CITY_ID")
     private int cityId;
@@ -32,11 +32,11 @@ public class StreetEntity {
         this.id = id;
     }
 
-    public String getHouse() {
+    public Integer getHouse() {
         return house;
     }
 
-    public void setHouse(String house) {
+    public void setHouse(Integer house) {
         this.house = house;
     }
 

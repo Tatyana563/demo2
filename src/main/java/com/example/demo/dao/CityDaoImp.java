@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
+import java.util.Optional;
 
 public class CityDaoImp implements CityDao{
 
@@ -34,4 +35,13 @@ public class CityDaoImp implements CityDao{
                 entityManager.createQuery("select c from CityEntity c").getResultList();
         return CollectionUtils.isEmpty(cityEntities)? Collections.emptyList():cityEntities;
     }
+
+    @Override
+    public Optional<CityEntity> findById(int id) {
+        final CityEntity cityEntity=
+                entityManager.find(CityEntity.class,id);
+        if(Objects.isNull(cityEntity)) throw  new RuntimeException("city not found");
+        return Optional.ofNullable(cityEntity);
+    }
+
 }
